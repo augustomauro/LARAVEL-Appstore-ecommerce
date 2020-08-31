@@ -1,0 +1,192 @@
+body {
+    background: #eeeeee;
+    color: #343a40;
+}
+
+/* NAVBAR + MESSAGE */
+nav.navbar {
+    z-index: 10;
+}
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    animation: smoothScroll 1s forwards;
+}
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-56px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+.flash-message {
+    height: 4rem;
+}
+nav #username {
+    font-weight: 500;
+}
+nav #username a {
+    cursor: context-menu;
+}
+nav #username sup {
+    cursor: progress;
+}
+nav .nav-item.icons sup {
+    font-weight: 500;
+    color: deeppink;
+}
+
+
+/* COMMON */
+.card-body {
+    -webkit-box-flex: 1;
+}
+
+/* APPLICATIONS & CATEGORIES -> INDEX.BLADE */
+
+.detail {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.detail .card {
+    align-self: stretch;
+    margin: 1%;
+    margin-top: 0;
+    background-color: #ffffff;
+    justify-content: space-between;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+}
+.detail .card li {
+    background-color: #ffffff;
+}
+.detail .card .card-img {
+    padding: 2%;
+}
+.detail .card .card-body p.card-text.developer {
+    font-size: smaller;
+}
+h1, h2, h3, h4, h5 {
+    text-align: center;
+}
+@media screen and (min-width: 768px){
+    .detail .card {
+        width: 18%;
+    }
+}
+@media screen and (max-width: 768px){
+    .detail .card {
+        width: 100%;
+    }
+}
+
+/* APPLICATION DETAIL -> SHOW.BLADE */
+.card .img-wrap {
+    overflow: hidden;
+}
+[class*='card-product'] .img-wrap img {
+    /* height: 100%; */
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+[class*='card-product'] a.title {
+    color: #212529;
+    display: block;
+}
+[class*='card-product'] a.title:hover {
+    color: #3167eb;
+}
+[class*='card-product'] a:hover {
+    text-decoration: none;
+}
+[class*='card-product'] p {
+    margin-bottom: 0;
+}
+.img-wrap {
+    text-align: center;
+    display: block;
+}
+.content-wrap {
+    width: 75%;
+    margin: 0 auto;
+}
+.price-old {
+    color: #969696;
+    margin-left: 3px;
+    font-size: 85%;
+}
+.btn-light {
+    background-color: #fff;
+    border-color: #e4e4e4;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #3167eb;
+    border-color: #3167eb;
+}
+.rating-stars li.stars-active i {
+    color: orange;
+}
+.rating-stars i {
+    font-size: 14px;
+    color: #ccc;
+    display: inline;
+}
+.rating-stars li.stars-active {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.rating-stars li {
+    display: block;
+    text-overflow: clip;
+    white-space: nowrap;
+    z-index: 1;
+}
+.rating-stars {
+    display: inline-block;
+    vertical-align: middle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    white-space: nowrap;
+    clear: both;
+}
+.developer-name {
+    color: #33691e;
+    font-weight: 700;
+}
+@media screen and (min-width: 900px){
+    .card-body #order-buttons .btn {
+        width: 50%;
+        margin: 0 2% 0 2%;
+    }
+    .card-body #order-buttons {
+        justify-content: space-between;
+        display: flex;
+    }
+}
+@media screen and (max-width: 900px){
+    .card-body #order-buttons .btn {
+        width: -webkit-fill-available;
+    }
+    .card-body #order-buttons .btn {
+        margin: 2% 0 2% 0;
+    }
+}
