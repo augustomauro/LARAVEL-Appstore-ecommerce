@@ -45,9 +45,11 @@ class AppServiceProvider extends ServiceProvider
 
         // Here we declare the variables that we want to share in ALL the views from the boot of the app
         \View::share('functionClass', $functionClass);
-
+        
         // Here we declare the variables that we want to share in ALL the views from the boot of the app
-        \View::share('categories', \App\Category::all());
+        if(\Schema::hasTable('categories')){
+            \View::share('categories', \App\Category::all());
+        }
 
         // Retorna cualquier precio en formato $0,00 con @money($precio) dentro del HTML
         \Blade::directive('money', function ($price) {
