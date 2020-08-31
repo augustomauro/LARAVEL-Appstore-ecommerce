@@ -30,13 +30,13 @@ There are two types of users in the application: developer and client. Both are 
 The user registered as a developer can carry out the following actions: 
 
 + Register an application indicating:
-- category
-- name
-- sale price
-- image or logo
+    - category
+    - name
+    - sale price
+    - image or logo
 
 + Edit the data of an application.
-- The category and the name cannot be modified.
+    - The category and the name cannot be modified.
 
 + Unsubscribe an application
 
@@ -78,17 +78,17 @@ We hope to have a registration screen and a login screen. Then, entering the sys
 ## Criteria to evaluate
 
 + Responsive, modern, intuitive design: 
-- It can be something minimalist, simple, but functional. 
-- Any CSS framework can be used: Bootstrap, Materialize, Bulma.
+    - It can be something minimalist, simple, but functional. 
+    - Any CSS framework can be used: Bootstrap, Materialize, Bulma.
 
 + General knowledge of PHP.
 + Basic / intermediate knowledge of Laravel: 
-- Correct use of controllers. 
-- Correct use of models, relationships, attributes.
+    - Correct use of controllers. 
+    - Correct use of models, relationships, attributes.
 
 + Validation of all forms.
 + Security: 
-- That developer users do not enter common user routes.
+    - That developer users do not enter common user routes.
 
 + Good coding practices.
 + Good practices for naming routes.
@@ -101,18 +101,18 @@ We hope to have a registration screen and a login screen. Then, entering the sys
 You are required to implement at least one of these points (your choice). The more and better you implement, the better score you will get. These are some extra points that you can implement:
 
 + In the list of categories: 
-- That they appear in alphabetical order. 
-- Show the number of related apps. 
+    - That they appear in alphabetical order. 
+    - Show the number of related apps. 
 
 + In the list of apps: 
-- Each 10 results must be paginated. 
-- By default they should appear in the order of creation, from most recent to oldest. 
-- Add an option to see only the most voted and when listing them that appear in the order of the most voted to the least, but those with a score below 2 should not appear. 
+    - Each 10 results must be paginated. 
+    - By default they should appear in the order of creation, from most recent to oldest. 
+    - Add an option to see only the most voted and when listing them that appear in the order of the most voted to the least, but those with a score below 2 should not appear. 
 
 + In the app detail: 
-- Two buttons should appear here, one that says "Buy!" and another that says "Add to wish list". 
-- These two buttons should only appear if the visitor is not the same developer user of the app. 
-- If a user has already bought the app, they cannot buy it again and if they have already added it to the wish list, neither can they.
+    - Two buttons should appear here, one that says "Buy!" and another that says "Add to wish list". 
+    - These two buttons should only appear if the visitor is not the same developer user of the app. 
+    - If a user has already bought the app, they cannot buy it again and if they have already added it to the wish list, neither can they.
 
 + Perform the assembly of the database through migrations. 
 + Add seeders to popular database. 
