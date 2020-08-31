@@ -32,8 +32,8 @@ $votes_count = $application->votes()->count();
 					<h5 class="title mt-2 h5" style="text-align: left">{{ $application->name }}</h5>
 					<small class="developer-name">{{ $application->user->username }}</small>
 					<div class="rating-wrap mb-3">
-						<ul class="rating-stars" title="{{ $application->getPercentaje() }}% of the total">
-								<li style="width:{{ $application->getPercentaje() }}%" class="stars-active">
+						<ul class="rating-stars" title="{{ $application->getRating() }}% of the total">
+								<li style="width:{{ $application->getRating() }}%" class="stars-active">
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i>
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>

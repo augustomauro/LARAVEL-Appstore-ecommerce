@@ -58,8 +58,8 @@
                 <!-- <p class="card-text">{{$application->description}}</p> -->
             </div>
             <div class="rating-wrap mb-3">
-                <ul class="rating-stars" title="{{ $application->getPercentaje() }}% of the total">
-                        <li style="width:{{ $application->getPercentaje() }}%" class="stars-active">
+                <ul class="rating-stars" title="{{ $application->getRating() }}% of the total">
+                        <li style="width:{{ $application->getRating() }}%" class="stars-active">
                         <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>

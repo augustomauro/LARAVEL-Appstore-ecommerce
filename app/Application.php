@@ -54,23 +54,27 @@ class Application extends Model
         return $query;
     }
 
-    public function getPercentaje() 
+    public function getRating() 
     {
         // Array of total voted applications + qty
         $db = \DB::select('select `application_id`, count(*) AS `qty` FROM `votes` GROUP BY `application_id`');
 
-        $total_votes = 0;   // Counter 100% of the votes in votes table
-        $this_total_votes = 0;  // Counter for this application votes
-        foreach ($db as $app) {
-            $total_votes += $app->qty;
-            if($app->application_id == $this->id){
-                $this_total_votes += $app->qty;
+        $result = 0;
+
+        if(count($db)>0){
+            $total_votes = 0;   // Counter 100% of the votes in votes table
+            $this_total_votes = 0;  // Counter for this application votes
+            foreach ($db as $app) {
+                $total_votes += $app->qty;
+                if($app->application_id == $this->id){
+                    $this_total_votes += $app->qty;
+                }
             }
+    
+            $result = ($this_total_votes * 100) / $total_votes;
         }
 
-        $percentaje = ($this_total_votes * 100) / $total_votes;
-        
-        return floor($percentaje * 100) / 100; // Float truncated to 2 decimals
+        return floor($result * 100) / 100; // Float truncated to 2 decimals
     }
 
 }
