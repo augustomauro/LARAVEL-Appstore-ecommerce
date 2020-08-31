@@ -43,7 +43,11 @@ class Application extends Model
     public function scopeVotedApps($query) 
     {
         // Array of most voted applications + qty (min 2 votes)
-        $db = \DB::select('select `application_id`, count(*) AS `qty` FROM `votes` GROUP BY `application_id` HAVING `qty` > 2');
+        $db = \DB::select('select `application_id`, count(*) AS `qty` FROM `votes` GROUP BY `application_id` HAVING `qty` > 1');
+
+        usort($db, function($a, $b) {return strcmp($b->qty, $a->qty);});    // Sort by qty DESC
+
+        // usort($db, function($a, $b) {return strcmp($a->qty, $b->qty);});    // Sort by qty ASC
 
         // Array of application indexes (numbers)
         $app_id_array = array_map(function($object){return $object->application_id;}, $db);
