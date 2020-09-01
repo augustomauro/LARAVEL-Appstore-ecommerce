@@ -228,8 +228,8 @@ class ApplicationsController extends Controller
      */
     public function voted()
     {
-        $applications = Application::votedApps()->orderBy('created_at','DESC')->paginate(10);
-        
+        $applications = Application::votedApps()->paginate(10);
+
         return view('website.applications.index',['applications' => $applications]);
     }
 }

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;  // Allows to use table () method in DB
 
+
 class Application extends Model
 {
     protected $fillable = [
@@ -43,19 +44,20 @@ class Application extends Model
     public function scopeVotedApps($query) 
     {
         // Array of most voted applications + qty (min 2 votes)
-        $db = \DB::select('select `application_id`, count(*) AS `qty` FROM `votes` GROUP BY `application_id` HAVING `qty` > 1');
+        $db = \DB::select('select `application_id`, count(*) AS `qty` FROM `votes` GROUP BY `application_id` HAVING `qty` > 1  ORDER BY `qty` DESC');
 
-        usort($db, function($a, $b) {return strcmp($b->qty, $a->qty);});    // Sort by qty DESC
+        // usort($db, function($a, $b) {return strcmp($b->qty, $a->qty);});    // Sort by qty DESC
 
         // usort($db, function($a, $b) {return strcmp($a->qty, $b->qty);});    // Sort by qty ASC
 
-        // Array of application indexes (numbers)
+        // Sorted Array of application indexes (numbers)
         $app_id_array = array_map(function($object){return $object->application_id;}, $db);
-
+        
         // Bring only the applications that match the indexes
-        $query->whereIn('id', $app_id_array);
+        $sorted = $query->whereIn('id', $app_id_array)
+        ->orderBy(DB::raw('FIELD(`id`, '.implode(',', $app_id_array).')'));
 
-        return $query;
+        return $sorted;
     }
 
     public function getRating() 
